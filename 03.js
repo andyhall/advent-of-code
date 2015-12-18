@@ -3,7 +3,7 @@ var fs = require('fs')
 var readline = require('readline')
 var stream = require('stream')
 
-var stream = fs.createReadStream('input2.txt', {
+var stream = fs.createReadStream('input03.txt', {
 	encoding: 'utf8'
 })
 

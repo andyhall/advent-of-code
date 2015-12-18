@@ -3,7 +3,7 @@ var fs = require('fs')
 var readline = require('readline')
 var stream = require('stream')
 
-var instream = fs.createReadStream('input9.txt')
+var instream = fs.createReadStream('input09.txt')
 // var instream = fs.createReadStream('test.txt')
 var outstream = new stream.Stream
 outstream.readable = outstream.writable = true

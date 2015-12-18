@@ -1,7 +1,7 @@
 
 var fs = require('fs')
 
-var t = fs.readFileSync('input.txt', 'utf8')
+var t = fs.readFileSync('input01.txt', 'utf8')
 
 var f = 0
 for (var i=0; i<t.length; i++) {

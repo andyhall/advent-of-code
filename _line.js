@@ -7,10 +7,10 @@ function read(f) {
 	var instream = fs.createReadStream(f)
 	var outstream = new stream.Stream
 	outstream.readable = outstream.writable = true
-	
+
 	var rl = readline.createInterface({ input: instream, output: outstream, terminal: false });
-	rl.on('line', function(line) { 	work(line) })
-	rl.on('close', function() { 	finish() })
+	rl.on('line', function (line) { work(line) })
+	rl.on('close', function () { finish() })
 }
 
 
@@ -21,33 +21,37 @@ function read(f) {
 */
 
 var hash = {}
-var part2 = false
-read('test.txt')
-// read('input14.txt')
-
 
 function work(line) {
-	var res = /(.)/.exec(line)
-	hash.lines = hash.lines ? hash.lines+1 : 1
-	hash.foo = res[1]
+	var res = /^(.*): (.*)$/.exec(line)
+	if (!res) return
+	var a = res[1]
+	var b = res[2]
+	hash[a] = b
 }
+
 
 function solve() {
-	var ct = 0
 	for (var s in hash) {
-		ct++
+		check(hash[s])
 	}
-	return hash.lines
 }
 
+function check() {
+	return true
+}
+
+
+var part2 = false
+var f = 'input16.txt'
+read(f)
+
+
 function finish() {
-	var s = solve()
-	console.log('output', s)
+	console.log('output', solve())
 	
-	if (part2) {
-		s = solve()
-		console.log('output two', s)
-	}
+	// part2 = true
+	// console.log('output two', solve())
 }
 
 
